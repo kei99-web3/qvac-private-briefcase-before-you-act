@@ -15,7 +15,7 @@ QVAC Private Briefcase is designed for contracts, invoices, request messages, im
 - Shows source-grounded review points.
 - Treats contracts as sign/approval checks, invoices as payment-processing reconciliation, and messages as reply/share checks.
 - Exports a Local AI Proof Bundle.
-- Keeps status honest while real adapter integration and final evidence packaging are still pending.
+- Keeps status honest by separating the mock UI from the real QVAC proof path.
 
 ## Current Prototype
 
@@ -75,6 +75,10 @@ Source-level no-cloud scan:
 Real QVAC brief proof:
 
 - `docs/REAL_QVAC_BRIEF_PROOF.md`
+
+Demo script and shot list:
+
+- `docs/DEMO_VIDEO_SCRIPT.md`
 
 ## License
 

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "commonjs",
-  "description": "Mock-only local/mobile-web prototype for QVAC Private Briefcase: Before You Act.",
+  "description": "Local/mobile-web UI prototype plus real QVAC proof runner for QVAC Private Briefcase: Before You Act.",
   "scripts": {
     "brief": "node run_mock_private_briefcase.js",
     "qvac:brief": "node run_qvac_private_briefcase.mjs",

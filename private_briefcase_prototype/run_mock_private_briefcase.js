@@ -154,8 +154,9 @@ function buildMockBrief(samples) {
     schema_version: "qvac_private_briefcase.before_you_act.mock.v2",
     generated_at: mockGeneratedAt,
     app: "QVAC Private Briefcase: Before You Act",
-    adapter: "mock_qvac_before_you_act_adapter",
+    adapter: "mock_before_you_act_ui_with_real_qvac_artifact",
     real_qvac_sdk: false,
+    qvac_sdk_status: "real_model_run_cache_rerun_and_real_brief_verified_separately",
     supported_surfaces: ["desktop_web", "mobile_web"],
     user_question: "What should I check before I act on this?",
     summary: "Before You Act turns sensitive local files into action-specific checks for signing, approval, payment processing, replies, and file sharing.",
@@ -171,12 +172,12 @@ function buildMockBrief(samples) {
       primary_use_case: "phone review before replying, approving, or processing a payment",
       no_cloud_posture: "mock uses Node built-ins only; real QVAC model proof is captured separately"
     },
-    readiness: "needs_more_evidence",
+    readiness: "ready_for_user_review",
     blocking_gaps: [
-      "Real @qvac/sdk proof is captured separately; final app flow still needs adapter integration.",
       "Mobile-native packaging is not implemented yet; current output is responsive mobile web.",
       "OCR/transcription/RAG path still needs QVAC implementation.",
-      "DoraHacks logged-in rule/form readback is still pending."
+      "DoraHacks logged-in rule/form readback is still pending.",
+      "Demo video recording depends on the final DoraHacks form requirements."
     ]
   };
 }
@@ -450,7 +451,7 @@ function renderHtml(brief) {
     <nav aria-label="Local files">
       <div class="nav-title">
         <strong>Local files</strong>
-        <span>${escapeHtml(brief.readiness)} / mock-only</span>
+        <span>${escapeHtml(brief.readiness)} / UI mock + real QVAC proof</span>
       </div>
 ${fileTabs}
     </nav>
@@ -458,7 +459,7 @@ ${fileTabs}
       <div class="brief-stack">${briefSections}</div>
       <section class="proof-panel">
         <h2>Local AI Proof Bundle</h2>
-        <p>This mock run writes input hashes, output hashes, stage files, and a reproducibility note. Real QVAC model proof now exists separately; final submission still needs real adapter integration and final evidence packaging.</p>
+        <p>This UI mock run writes input hashes, output hashes, stage files, and a reproducibility note. Real QVAC model proof and a real Before You Act brief artifact now exist separately through <code>npm run qvac:probe</code> and <code>npm run qvac:brief</code>.</p>
         <p><strong>Mobile posture:</strong> responsive web mock now; native/mobile QVAC packaging remains an approval-gated next step.</p>
       </section>
       <div class="mobile-action"><a href="#contract">Back to first file</a></div>
@@ -568,8 +569,8 @@ function main() {
   console.log(`QVAC Private Briefcase mock complete: ${brief.readiness}`);
   console.log(`wrote ${path.relative(process.cwd(), outputDir)}`);
 
-  if (brief.readiness !== "needs_more_evidence") {
-    console.error("Mock prototype must remain needs_more_evidence until final evidence packaging and DoraHacks readback are complete.");
+  if (brief.readiness !== "ready_for_user_review") {
+    console.error("Private Briefcase prototype must remain ready_for_user_review until DoraHacks readback and final approval are complete.");
     process.exit(1);
   }
 }
