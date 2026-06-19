@@ -1,7 +1,7 @@
 # QVAC SDK npm Install Diagnosis
 
 Checked: 2026-06-19 JST
-Status: `install_import_resolved_model_pending`
+Status: `install_import_resolved_model_verified`
 
 ## Conclusion
 
@@ -39,6 +39,12 @@ npm run qvac:probe
 
 ## Remaining Work
 
-This resolves package installation and SDK import only.
+This resolves package installation and SDK import. A follow-up run also verified the smallest local model path in the originating workspace.
 
-The project still needs real model download/cache proof, local inference output, offline rerun proof, and no-cloud scan evidence before final hackathon submission.
+Follow-up model status:
+
+- `LLAMA_3_2_1B_INST_Q4_0` downloaded and checksum-validated.
+- local completion succeeded.
+- cache rerun succeeded with HTTP/HTTPS proxy variables pointed at an invalid local proxy.
+
+The project still needs final adapter integration, stricter no-cloud evidence if desired, and final evidence/demo packaging before hackathon submission.

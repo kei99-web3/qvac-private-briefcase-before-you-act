@@ -15,7 +15,7 @@ QVAC Private Briefcase is designed for contracts, invoices, request messages, im
 - Shows source-grounded review points.
 - Treats contracts as sign/approval checks, invoices as payment-processing reconciliation, and messages as reply/share checks.
 - Exports a Local AI Proof Bundle.
-- Keeps status honest until real QVAC SDK model proof exists.
+- Keeps status honest while real adapter integration and final evidence packaging are still pending.
 
 ## Current Prototype
 
@@ -55,14 +55,21 @@ The generated report is responsive for smartphone-width review. Local Playwright
 
 The final hackathon version should use `@qvac/sdk` for local inference and, if stable, local OCR/RAG.
 
-Evidence to capture:
+Evidence captured in the originating local workspace:
 
 - QVAC SDK version and runtime logs
 - model/cache metadata
 - local inference output
-- offline rerun proof
-- no-cloud scan
+- cache rerun proof with process-level HTTP/HTTPS proxy isolation
+
+Evidence still to package or strengthen:
+
+- stricter runtime no-cloud proof, if required
 - input and output hashes
+
+Source-level no-cloud scan:
+
+- `docs/NO_CLOUD_SOURCE_SCAN.md`
 
 ## License
 

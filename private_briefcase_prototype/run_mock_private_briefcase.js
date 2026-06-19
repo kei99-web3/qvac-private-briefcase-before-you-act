@@ -458,7 +458,7 @@ ${fileTabs}
       <div class="brief-stack">${briefSections}</div>
       <section class="proof-panel">
         <h2>Local AI Proof Bundle</h2>
-        <p>This mock run writes input hashes, output hashes, stage files, and a reproducibility note. Final submission still needs real <code>@qvac/sdk</code> inference and offline rerun proof.</p>
+        <p>This mock run writes input hashes, output hashes, stage files, and a reproducibility note. Real QVAC model proof now exists separately; final submission still needs real adapter integration and final evidence packaging.</p>
         <p><strong>Mobile posture:</strong> responsive web mock now; native/mobile QVAC packaging remains an approval-gated next step.</p>
       </section>
       <div class="mobile-action"><a href="#contract">Back to first file</a></div>

@@ -155,6 +155,12 @@ async function main() {
       attempted: shouldLoadModel,
       ok: false,
       model_constant: "LLAMA_3_2_1B_INST_Q4_0",
+      model_source: null,
+      rerun_context: {
+        http_proxy_set: Boolean(process.env.HTTP_PROXY),
+        https_proxy_set: Boolean(process.env.HTTPS_PROXY),
+        no_proxy_set: Boolean(process.env.NO_PROXY)
+      },
       progress_events: [],
       text: "",
       error: null
@@ -181,6 +187,19 @@ async function main() {
       unloadModel: typeof sdk.unloadModel === "function",
       LLAMA_3_2_1B_INST_Q4_0: Boolean(sdk.LLAMA_3_2_1B_INST_Q4_0)
     };
+    if (sdk.LLAMA_3_2_1B_INST_Q4_0) {
+      const selectedModel = sdk.LLAMA_3_2_1B_INST_Q4_0;
+      evidence.model_run.model_source = {
+        name: selectedModel.name || null,
+        registrySource: selectedModel.registrySource || null,
+        registryPath: selectedModel.registryPath || null,
+        expectedSize: selectedModel.expectedSize || null,
+        sha256Checksum: selectedModel.sha256Checksum || null,
+        engine: selectedModel.engine || null,
+        quantization: selectedModel.quantization || null,
+        params: selectedModel.params || null
+      };
+    }
     evidence.notes.push("QVAC SDK import succeeded.");
 
     if (shouldLoadModel) {
@@ -190,7 +209,7 @@ async function main() {
 
       const modelId = await sdk.loadModel({
         modelSrc: sdk.LLAMA_3_2_1B_INST_Q4_0,
-        modelType: "llm",
+        modelType: "llamacpp-completion",
         onProgress: (progress) => {
           evidence.model_run.progress_events.push(progress);
         }

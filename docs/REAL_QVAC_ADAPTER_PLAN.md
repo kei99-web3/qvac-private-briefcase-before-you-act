@@ -1,6 +1,6 @@
 ﻿# Real QVAC Adapter Plan
 
-Status: sdk_install_import_verified_model_pending
+Status: sdk_model_run_verified_adapter_pending
 
 ## Goal
 
@@ -58,5 +58,7 @@ The install/import blocker has been resolved for the originating workspace:
 - `bare-zlib@1.3.1` fetched successfully.
 - npm `overrides` pins both `@qvac/sdk` and `@qvac/rag -> bare-fetch` paths to `bare-zlib@1.3.1`.
 - `npm run qvac:probe` imported `@qvac/sdk@0.13.5` and confirmed the core exports.
+- `LLAMA_3_2_1B_INST_Q4_0` downloaded, checksum-validated, loaded through `llamacpp-completion`, and completed a local prompt.
+- cache rerun succeeded with HTTP/HTTPS proxy variables pointed at an invalid local proxy.
 
-The remaining blocker is model execution: no model download/cache, local inference output, or offline rerun proof has been captured yet.
+The remaining blocker is adapter integration: the real model proof exists, but the final Private Briefcase brief flow still needs to use the real QVAC adapter instead of the mock adapter.

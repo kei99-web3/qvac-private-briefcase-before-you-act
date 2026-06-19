@@ -1,6 +1,6 @@
 ﻿# QVAC Private Briefcase Mock Prototype
 
-Status: mock_with_qvac_sdk_import_verified
+Status: mock_with_qvac_model_run_verified
 Updated: 2026-06-19 JST
 
 ## Purpose
@@ -16,7 +16,7 @@ It simulates:
 - showing source-grounded citations
 - exporting a Local AI Proof Bundle
 
-`@qvac/sdk` is declared in `package.json`, locked in `package-lock.json`, and imports successfully in the originating local workspace.
+`@qvac/sdk` is declared in `package.json`, locked in `package-lock.json`, imports successfully in the originating local workspace, and has verified a real `LLAMA_3_2_1B_INST_Q4_0` model run/cache rerun.
 
 Install note for Windows/npm:
 
@@ -45,7 +45,7 @@ npm install --maxsockets=1 --fetch-retries=5 --fetch-retry-mintimeout=20000 --fe
 npm run qvac:probe
 ```
 
-After `npm install`, a real model run can be attempted with:
+After `npm install`, a real model run can be repeated with:
 
 ```powershell
 $env:QVAC_LOAD_MODEL="1"
@@ -69,4 +69,4 @@ The generated HTML is responsive and phone-review friendly. This is not a native
 
 ## Submission Boundary
 
-This is not final submission evidence yet. The mock evidence must be supplemented with a local model run and offline rerun proof.
+This is not final submission evidence yet. The originating workspace has local QVAC model run/cache rerun proof, but this mock prototype still needs the real QVAC adapter wired into the final Private Briefcase brief flow.
