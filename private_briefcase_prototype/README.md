@@ -78,4 +78,4 @@ The generated HTML is responsive and phone-review friendly. This is not a native
 
 ## Submission Boundary
 
-This is not final submission evidence yet. The originating workspace has local QVAC model run/cache rerun proof and a real QVAC brief artifact. Final submission still needs DoraHacks manual readback, final evidence packaging, and user approval.
+This is local review evidence, not a submitted DoraHacks entry. The originating workspace has local QVAC model run/cache rerun proof, a real QVAC brief artifact, a final evidence-bundle index, and a demo script. Final submission still needs DoraHacks manual readback, any required demo-video decision, and explicit user approval.
