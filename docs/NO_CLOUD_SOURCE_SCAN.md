@@ -8,6 +8,7 @@ Status: `source_scan_clean`
 Target:
 
 - `private_briefcase_prototype/`
+- includes the real QVAC brief script `run_qvac_private_briefcase.mjs`
 
 Excluded:
 

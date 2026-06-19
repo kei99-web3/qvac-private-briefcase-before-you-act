@@ -45,11 +45,18 @@ npm install --maxsockets=1 --fetch-retries=5 --fetch-retry-mintimeout=20000 --fe
 npm run qvac:probe
 ```
 
-After `npm install`, a real model run can be repeated with:
+After `npm install`, a real model probe can be repeated with:
 
 ```powershell
 $env:QVAC_LOAD_MODEL="1"
 npm run qvac:probe
+```
+
+Generate a real QVAC Before You Act brief:
+
+```powershell
+$env:NODE_OPTIONS="--use-system-ca"
+npm run qvac:brief
 ```
 
 ## Outputs
@@ -61,6 +68,8 @@ npm run qvac:probe
 - `output/mobile_preview_playwright_390.png` when browser verification is performed
 - `output/qvac_sdk_probe.md`
 - `output/qvac_sdk_probe.json`
+- `output/qvac_private_briefcase_real_brief.md`
+- `output/qvac_private_briefcase_real_brief.json`
 - `output/local_ai_proof_bundle/`
 
 ## Mobile Boundary
@@ -69,4 +78,4 @@ The generated HTML is responsive and phone-review friendly. This is not a native
 
 ## Submission Boundary
 
-This is not final submission evidence yet. The originating workspace has local QVAC model run/cache rerun proof, but this mock prototype still needs the real QVAC adapter wired into the final Private Briefcase brief flow.
+This is not final submission evidence yet. The originating workspace has local QVAC model run/cache rerun proof and a real QVAC brief artifact. Final submission still needs DoraHacks manual readback, final evidence packaging, and user approval.

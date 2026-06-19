@@ -61,6 +61,7 @@ Evidence captured in the originating local workspace:
 - model/cache metadata
 - local inference output
 - cache rerun proof with process-level HTTP/HTTPS proxy isolation
+- real QVAC Before You Act brief artifact via `npm run qvac:brief`
 
 Evidence still to package or strengthen:
 
@@ -70,6 +71,10 @@ Evidence still to package or strengthen:
 Source-level no-cloud scan:
 
 - `docs/NO_CLOUD_SOURCE_SCAN.md`
+
+Real QVAC brief proof:
+
+- `docs/REAL_QVAC_BRIEF_PROOF.md`
 
 ## License
 

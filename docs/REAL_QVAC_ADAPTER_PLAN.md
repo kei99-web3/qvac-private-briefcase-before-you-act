@@ -60,5 +60,6 @@ The install/import blocker has been resolved for the originating workspace:
 - `npm run qvac:probe` imported `@qvac/sdk@0.13.5` and confirmed the core exports.
 - `LLAMA_3_2_1B_INST_Q4_0` downloaded, checksum-validated, loaded through `llamacpp-completion`, and completed a local prompt.
 - cache rerun succeeded with HTTP/HTTPS proxy variables pointed at an invalid local proxy.
+- `npm run qvac:brief` generates a real QVAC Before You Act brief artifact from the four local sample files.
 
-The remaining blocker is adapter integration: the real model proof exists, but the final Private Briefcase brief flow still needs to use the real QVAC adapter instead of the mock adapter.
+The remaining blocker is final packaging: the real model proof and real brief artifact exist, but the final DoraHacks packet still needs manual readback and judge-facing evidence organization.

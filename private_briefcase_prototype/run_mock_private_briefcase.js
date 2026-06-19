@@ -169,11 +169,11 @@ function buildMockBrief(samples) {
     mobile_preview: {
       viewport: "single-column, touch-friendly HTML",
       primary_use_case: "phone review before replying, approving, or processing a payment",
-      no_cloud_posture: "mock uses Node built-ins only; real QVAC proof is pending approval"
+      no_cloud_posture: "mock uses Node built-ins only; real QVAC model proof is captured separately"
     },
     readiness: "needs_more_evidence",
     blocking_gaps: [
-      "Real @qvac/sdk inference proof is missing.",
+      "Real @qvac/sdk proof is captured separately; final app flow still needs adapter integration.",
       "Mobile-native packaging is not implemented yet; current output is responsive mobile web.",
       "OCR/transcription/RAG path still needs QVAC implementation.",
       "DoraHacks logged-in rule/form readback is still pending."
@@ -224,7 +224,7 @@ ${citations}
 
 ## Honesty Note
 
-This is a mock-only prototype. It proves the Before You Act product shape for desktop and smartphone review, but it is not final QVAC SDK evidence.
+This is a mock UI prototype. It proves the Before You Act product shape for desktop and smartphone review; real QVAC SDK evidence is generated separately by \`npm run qvac:probe\` and \`npm run qvac:brief\`.
 `;
 }
 
@@ -488,8 +488,9 @@ This mock is now shaped for smartphone review as well as desktop review.
 ## Current Boundary
 
 - This is responsive mobile web, not a native mobile app.
-- No \`@qvac/sdk\` install, model download, Expo build, app store package, or device deployment has been performed.
-- Real mobile QVAC proof needs user approval after SDK size/runtime risks are reviewed.
+- Desktop \`@qvac/sdk\` install, model download, and cache rerun proof exist in the originating workspace.
+- Expo build, app store package, and real device deployment have not been performed.
+- Do not claim Mobile track without real mobile/device QVAC proof.
 `;
 }
 
@@ -510,7 +511,7 @@ function buildProofBundle(samples, brief) {
       app: brief.app,
       artifact_status: "mock_only_not_submission_ready",
       supported_surfaces: brief.supported_surfaces,
-      qvac_sdk_status: "pending_user_approval",
+      qvac_sdk_status: "model_run_verified_separate_artifact",
       input_manifest: inputManifest,
       output_sha256: sha256(outputText),
       readiness: brief.readiness
@@ -519,7 +520,7 @@ function buildProofBundle(samples, brief) {
       stage: 1,
       name: "Eligibility and source verification",
       status: "pass_mock",
-      evidence: ["App theme uses local Before You Act document review.", "Real @qvac/sdk dependency is still pending."]
+      evidence: ["App theme uses local Before You Act document review.", "Real @qvac/sdk model proof is captured in qvac probe and real brief artifacts."]
     },
     stage2: {
       stage: 2,
@@ -568,7 +569,7 @@ function main() {
   console.log(`wrote ${path.relative(process.cwd(), outputDir)}`);
 
   if (brief.readiness !== "needs_more_evidence") {
-    console.error("Mock prototype must remain needs_more_evidence until real QVAC proof exists.");
+    console.error("Mock prototype must remain needs_more_evidence until final evidence packaging and DoraHacks readback are complete.");
     process.exit(1);
   }
 }

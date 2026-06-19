@@ -46,7 +46,7 @@ async function readSamples() {
     "contract_excerpt.txt",
     "invoice_note.txt",
     "request_message.txt",
-    "image_note_ocr_standin.txt"
+    "image_memo_ocr.txt"
   ];
   const files = [];
   for (const name of names) {
@@ -61,18 +61,15 @@ async function readSamples() {
 
 function buildBeforeYouActPrompt(samples) {
   const sampleText = samples
-    .map((sample) => `--- ${sample.name} ---\n${sample.content.trim()}`)
+    .map((sample) => `--- ${sample.name} ---\n${sample.content.trim().slice(0, 360)}`)
     .join("\n\n");
 
-  return `You are QVAC Private Briefcase: Before You Act.
-Use only the local text below. Do not ask for cloud services.
-Return concise JSON with:
-- contract checks before signing or approval
-- invoice checks for payment-processing reconciliation
-- request-message checks before replying or sharing files
-- image-note checks before acting on tasks
+  return `Return concise JSON for QVAC Private Briefcase.
+Use only these local excerpts.
+Keys: contract, invoice, message, image_note, next_actions.
+Focus on checks before signing, payment processing, replying, sharing, or acting.
 
-Local files:
+Excerpts:
 ${sampleText}`;
 }
 
