@@ -1,0 +1,62 @@
+﻿{
+  "project": {
+    "name": "QVAC Edge Evidence Auditor",
+    "license": "Apache-2.0 pending user approval",
+    "target_track": "General Purpose devices",
+    "runtime": "Windows 10+ x64 / Node.js",
+    "qvac_sdk_status": "mock_adapter_only"
+  },
+  "hardware": {
+    "node": "v24.15.0",
+    "npm": "11.12.1",
+    "gpu": "NVIDIA GeForce RTX 3070 Ti",
+    "vulkan": "available"
+  },
+  "requirements": [
+    "all_ai_inference_must_use_qvac_sdk",
+    "on_device_inference",
+    "no_cloud_dependencies",
+    "fully_open_source",
+    "evidence_bundle",
+    "three_stage_verification"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "kind": "documentation",
+      "content": "Local-first no-cloud evidence auditor using a qvacAdapter boundary."
+    },
+    {
+      "path": "src/qvacAdapter.ts",
+      "kind": "adapter",
+      "content": "import { loadModel, completion, unloadModel } from '@qvac/sdk';"
+    },
+    {
+      "path": "src/noCloudScan.ts",
+      "kind": "scanner",
+      "content": "scan source files for remote api urls, fetch calls, telemetry, hosted dashboards."
+    },
+    {
+      "path": "docs/reproducibility.md",
+      "kind": "evidence",
+      "content": "Run npm test, qvac doctor, local inference proof, offline rerun after model cache."
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-001",
+      "kind": "source",
+      "text": "QVAC official docs require Node.js >= v22.17 and show @qvac/sdk quickstart."
+    },
+    {
+      "id": "obs-002",
+      "kind": "risk",
+      "text": "DoraHacks 3-stage verification details still need logged-in browser confirmation."
+    },
+    {
+      "id": "obs-003",
+      "kind": "risk",
+      "text": "Mock adapter is not submission evidence until replaced by real QVAC inference."
+    }
+  ]
+}

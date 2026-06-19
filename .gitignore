@@ -1,0 +1,7 @@
+﻿node_modules/
+output/
+*.log
+.env
+.env.*
+dist/
+coverage/

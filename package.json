@@ -1,0 +1,15 @@
+﻿{
+  "name": "qvac-private-briefcase-prototype",
+  "version": "0.1.0",
+  "private": false,
+  "type": "commonjs",
+  "description": "Dependency-free mock prototype for QVAC Private Briefcase proof exports.",
+  "scripts": {
+    "verify": "node verify_mock_prototype.js",
+    "bundle": "node generate_mock_evidence_bundle.js",
+    "brief": "npm --prefix private_briefcase_prototype run brief",
+    "qvac:probe": "npm --prefix private_briefcase_prototype run qvac:probe",
+    "test": "node verify_mock_prototype.js && node generate_mock_evidence_bundle.js && npm --prefix private_briefcase_prototype test && npm --prefix private_briefcase_prototype run qvac:probe"
+  },
+  "license": "Apache-2.0"
+}

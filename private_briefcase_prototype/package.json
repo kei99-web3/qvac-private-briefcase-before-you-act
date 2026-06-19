@@ -1,0 +1,16 @@
+{
+  "name": "qvac-private-briefcase-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Mock-only local/mobile-web prototype for QVAC Private Briefcase: Before You Act.",
+  "scripts": {
+    "brief": "node run_mock_private_briefcase.js",
+    "qvac:probe": "node qvac_sdk_probe.mjs",
+    "test": "node run_mock_private_briefcase.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@qvac/sdk": "^0.13.5"
+  }
+}

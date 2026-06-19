@@ -1,0 +1,8 @@
+﻿Invoice Note
+
+Invoice ID: INV-2026-0619-QVAC
+Amount: 2,450 USD
+Due date: 2026-06-26
+Payment method: bank transfer
+Change warning: vendor asks to update bank details by email before payment.
+Approval owner: operations lead

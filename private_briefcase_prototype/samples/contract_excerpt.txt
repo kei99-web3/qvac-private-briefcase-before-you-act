@@ -1,0 +1,9 @@
+﻿Service Agreement Excerpt
+
+Client: Northstar Studio
+Provider: Atlas Field Ops
+Effective date: 2026-06-20
+Payment due: Net 7 after invoice receipt
+Confidentiality: both parties must protect client files and operational notes.
+Termination: either party may terminate with 3 days notice.
+Risk note: provider may use subcontractors only with written client approval.
