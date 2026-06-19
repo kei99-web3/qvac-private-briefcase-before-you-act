@@ -35,10 +35,14 @@ npm test
 The prototype also includes a QVAC SDK readiness probe:
 
 ```powershell
+$env:NODE_OPTIONS="--use-system-ca"
+npm install --maxsockets=1 --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000
 npm run qvac:probe
 ```
 
-`@qvac/sdk` is declared and locked in `private_briefcase_prototype/package-lock.json`. A full local install was attempted, but npm downloads failed with repeated `ECONNRESET` network errors before runtime import could be verified on this machine. The probe writes an honest status file under `private_briefcase_prototype/output/`.
+`@qvac/sdk` is declared and locked in `private_briefcase_prototype/package-lock.json`. In the originating Windows workspace, npm needed `NODE_OPTIONS=--use-system-ca`, and `bare-zlib` had to be pinned to `1.3.1` via `overrides` because `bare-zlib@1.4.0` tarball fetches repeatedly failed with `ECONNRESET`. With that setup, install completed and `npm run qvac:probe` verified the SDK import and core exports. The probe writes an honest status file under `private_briefcase_prototype/output/`.
+
+See `docs/QVAC_NPM_INSTALL_DIAGNOSIS.md` for the install diagnosis and reproduction notes.
 
 ## Mobile Preview
 

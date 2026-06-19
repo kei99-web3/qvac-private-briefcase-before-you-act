@@ -1,6 +1,6 @@
 ﻿# QVAC Private Briefcase Mock Prototype
 
-Status: mock_with_qvac_sdk_probe
+Status: mock_with_qvac_sdk_import_verified
 Updated: 2026-06-19 JST
 
 ## Purpose
@@ -16,7 +16,14 @@ It simulates:
 - showing source-grounded citations
 - exporting a Local AI Proof Bundle
 
-`@qvac/sdk` is declared in `package.json` and locked in `package-lock.json`. Full install was attempted after approval, but the local npm download failed with repeated `ECONNRESET` network errors before `node_modules/@qvac/sdk` was installed.
+`@qvac/sdk` is declared in `package.json`, locked in `package-lock.json`, and imports successfully in the originating local workspace.
+
+Install note for Windows/npm:
+
+- npm without `NODE_OPTIONS=--use-system-ca` failed with `UNABLE_TO_VERIFY_LEAF_SIGNATURE` in the originating environment.
+- npm originally resolved `bare-zlib@1.4.0`, whose tarball repeatedly failed with `ECONNRESET`.
+- `package.json` pins `bare-zlib` to `1.3.1` via `overrides`, which allowed `npm install` to complete.
+- Installed `node_modules` size is about 4.82 GiB.
 
 ## Run
 
@@ -33,10 +40,12 @@ node .\run_mock_private_briefcase.js
 Run the QVAC SDK readiness probe:
 
 ```powershell
+$env:NODE_OPTIONS="--use-system-ca"
+npm install --maxsockets=1 --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000
 npm run qvac:probe
 ```
 
-If `npm install` succeeds later, a real model run can be attempted with:
+After `npm install`, a real model run can be attempted with:
 
 ```powershell
 $env:QVAC_LOAD_MODEL="1"
@@ -60,4 +69,4 @@ The generated HTML is responsive and phone-review friendly. This is not a native
 
 ## Submission Boundary
 
-This is not final submission evidence yet. The mock evidence must be replaced or supplemented with a successful QVAC SDK import, local model run, and offline rerun proof once dependency download succeeds.
+This is not final submission evidence yet. The mock evidence must be supplemented with a local model run and offline rerun proof.

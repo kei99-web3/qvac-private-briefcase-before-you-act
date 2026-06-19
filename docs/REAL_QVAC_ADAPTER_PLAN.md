@@ -1,6 +1,6 @@
 ﻿# Real QVAC Adapter Plan
 
-Status: dependency_locked_install_incomplete
+Status: sdk_install_import_verified_model_pending
 
 ## Goal
 
@@ -29,11 +29,12 @@ Additional real fields should include:
 ## Minimal Implementation Steps
 
 1. `@qvac/sdk@^0.13.5` is declared and locked in `private_briefcase_prototype/package-lock.json`.
-2. Run `npm install` inside `private_briefcase_prototype/` once npm registry downloads are stable.
-3. Run `npm run qvac:probe` to verify SDK import and exported APIs.
-4. Run `QVAC_LOAD_MODEL=1 npm run qvac:probe` or the PowerShell equivalent to attempt the smallest local model completion.
-5. Rerun after model cache with network disabled or blocked as practical.
-6. Write real runtime logs into `output/evidence_bundle/qvac_runtime_logs/`.
+2. Run `npm install` inside `private_briefcase_prototype/` with `NODE_OPTIONS=--use-system-ca`.
+3. Keep the `bare-zlib@1.3.1` override unless `bare-zlib@1.4.0` tarball fetches are known to be stable in the target environment.
+4. Run `npm run qvac:probe` to verify SDK import and exported APIs.
+5. Run `QVAC_LOAD_MODEL=1 npm run qvac:probe` or the PowerShell equivalent to attempt the smallest local model completion.
+6. Rerun after model cache with network disabled or blocked as practical.
+7. Write real runtime logs into `output/evidence_bundle/qvac_runtime_logs/`.
 
 ## Evidence To Save
 
@@ -46,6 +47,16 @@ Additional real fields should include:
 - offline rerun transcript
 - final no-cloud scan output
 
-## Current Blocker
+## Current Status
 
-User approval has been granted for dependency installation and model proof, but local npm downloads repeatedly failed with `ECONNRESET` before `node_modules/@qvac/sdk` could be installed. `npm install --package-lock-only` succeeded, and `npm audit --package-lock-only --omit=dev --json` reported zero vulnerabilities for the locked production dependency graph.
+User approval has been granted for dependency installation and model proof.
+
+The install/import blocker has been resolved for the originating workspace:
+
+- npm needed `NODE_OPTIONS=--use-system-ca` to avoid `UNABLE_TO_VERIFY_LEAF_SIGNATURE`.
+- `bare-zlib@1.4.0` tarball fetches repeatedly failed with `ECONNRESET`.
+- `bare-zlib@1.3.1` fetched successfully.
+- npm `overrides` pins both `@qvac/sdk` and `@qvac/rag -> bare-fetch` paths to `bare-zlib@1.3.1`.
+- `npm run qvac:probe` imported `@qvac/sdk@0.13.5` and confirmed the core exports.
+
+The remaining blocker is model execution: no model download/cache, local inference output, or offline rerun proof has been captured yet.
