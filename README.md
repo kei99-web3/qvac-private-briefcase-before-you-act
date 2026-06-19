@@ -76,6 +76,15 @@ Real QVAC brief proof:
 
 - `docs/REAL_QVAC_BRIEF_PROOF.md`
 
+Hardware and form readback:
+
+- `docs/HARDWARE_PROFILE.md`
+- `docs/DORAHACKS_FORM_REQUIREMENTS.md`
+
+Remote API call manifest:
+
+- `remote_api_calls.json`
+
 Demo script and shot list:
 
 - `docs/DEMO_VIDEO_SCRIPT.md`

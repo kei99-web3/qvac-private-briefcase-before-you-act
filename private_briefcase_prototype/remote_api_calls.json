@@ -1,0 +1,23 @@
+{
+  "schema": "qvac_private_briefcase.remote_api_calls.v1",
+  "status": "runtime_no_remote_api_calls",
+  "runtime_user_data_remote_api_calls": [],
+  "setup_time_network_resources": [
+    {
+      "purpose": "dependency_install",
+      "resource": "npm registry packages for @qvac/sdk and transitive dependencies",
+      "contains_user_data": false,
+      "required_after_install": false
+    },
+    {
+      "purpose": "first_model_cache",
+      "resource": "QVAC model registry / Hugging Face model artifact for LLAMA_3_2_1B_INST_Q4_0",
+      "contains_user_data": false,
+      "required_after_cache": false
+    }
+  ],
+  "notes": [
+    "The demo app reads local sample files and does not call remote document, AI, analytics, telemetry, or cloud storage APIs during the standard demo run.",
+    "The standard cache-rerun proof is performed after the model artifact is already cached."
+  ]
+}

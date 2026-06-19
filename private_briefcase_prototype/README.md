@@ -70,7 +70,10 @@ npm run qvac:brief
 - `output/qvac_sdk_probe.json`
 - `output/qvac_private_briefcase_real_brief.md`
 - `output/qvac_private_briefcase_real_brief.json`
+- `output/demo_run_log.json`
+- `output/hardware_profile.json`
 - `output/local_ai_proof_bundle/`
+- `remote_api_calls.json`
 
 ## Mobile Boundary
 
